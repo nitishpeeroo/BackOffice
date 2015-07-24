@@ -1,0 +1,131 @@
+<?php echo $this->doctype('HTML5') ?>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <link type="text/plain" rel="author"     href="humans.txt" />
+        <link type="text/css"   rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,700%7cBitter:400,700' />
+        
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/bootstrap.css')       ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/flexslider.css')      ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/ionicons.min.css')    ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/style.css')           ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/jquery-ui.css')       ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/jquery.cleditor.css') ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/bootstrap.min.css')   ?>"   rel="stylesheet" />
+        <link type="text/css" href="<?php  echo $this->baseUrl('css/simple-sidebar.css')  ?>"   rel="stylesheet" />
+        
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/bootstrap.js')           ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/bootstrap.min.js')       ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/jquery-1.11.0.js')       ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/jquery-ui.js')           ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/jquery.cleditor.js')     ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/jquery.cleditor.min.js') ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/fonctions.js')           ?>"></script>
+        <script type="text/javascript" src="<?php   echo $this->baseUrl('/js/captcha.js')             ?>"></script>
+        
+        <?php
+            echo $this->headTitle();
+            echo $this->headMeta();
+            echo $this->headLink();
+            echo $this->headStyle();
+            echo $this->headScript();
+        ?>
+    </head>
+    
+    <body>
+        <div id="wrapper">
+            <!-- Sidebar -->
+            
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    
+                    <a style="margin-left:75px; margin-top:20px;" class="btn btn-primary" href="<?php echo $this->baseUrl(array('controller' => 'index', 'action', 'index')); ?>">
+                        ACCUEIL
+                    </a>
+                    
+                    <br/><br/><br/>
+                                       
+                    <ul id="menu-accordeon">
+                        <li <?php echo isset($this->code_menu) && 'General' == $this->code_menu?' class="ouvert"':''; ?>>
+                            <h3>Informations générales</h3>
+                            <ul>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Infos' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'general', 'action' => 'infos'), null, true) ?>">
+                                        Voir les infos
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li <?php echo isset($this->code_menu) && 'Contact' == $this->code_menu?' class="ouvert"':''; ?>>
+                            <h3>Messages</h3>
+                            <ul>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Messages' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'contact', 'action' => 'messages'), null, true) ?>">
+                                        Voir les messages
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li <?php echo isset($this->code_menu) && 'Categorie' == $this->code_menu?' class="ouvert"':''; ?>>
+                            <h3>Gestion des catégories</h3>
+                            <ul>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Categories' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'categories'), null, true) ?>">
+                                        Voir les catégories
+                                    </a>
+                                </li>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Add' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'category', 'action' => 'add'), null, true) ?>">
+                                        Ajouter une catégorie
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li <?php echo isset($this->code_menu) && 'Vente' == $this->code_menu?' class="ouvert"':''; ?>>
+                            <h3>Gestion des ventes</h3>
+                            <ul>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Checked' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'sell', 'action' => 'checked'), null, true) ?>">
+                                        Voir les ventes en ligne
+                                    </a>
+                                </li>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Unchecked' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'sell', 'action' => 'unchecked'), null, true) ?>">
+                                        Voir les ventes en attente
+                                    </a>
+                                </li>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Refused' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'sell', 'action' => 'refused'), null, true) ?>">
+                                        Voir les ventes refusées
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
+                        
+                        <li <?php echo isset($this->code_menu) && 'User' == $this->code_menu?' class="ouvert"':''; ?>>
+                            <h3>Gestion des utilisateurs</h3>
+                            <ul>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Users' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'users'), null, true) ?>">
+                                        Voir les utilisateurs en ligne
+                                    </a>
+                                </li>
+                                <li class="sidebar-brand <?php echo isset($this->code_sous_menu) && 'Blocked' == $this->code_sous_menu?'actif':''; ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'blocked'), null, true) ?>">
+                                        Voir les utilisateurs bloqués
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
+                    </ul>
+                </ul>
+            </div>
+            
+<?php echo $this->layout()->content;
