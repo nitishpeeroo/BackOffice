@@ -1,0 +1,22 @@
+<div style="margin-left:50px; margin-right:52%">
+    <br/><h2><u>Modification des informations générales</u></h2><br/>
+    
+    <strong>Logo :</strong> 
+    <br/>
+    <img 
+        style = "width:200px; height:200px;" 
+        src   = "data:image/<?php echo $this->name_logo . ' ;base64,' . $this->logo ?>" 
+    />
+    
+    <br/>
+    
+    <strong>Favicon :</strong>
+    <br/>
+    <img 
+        style = "width:50px; height:50px;" 
+        src   = "data:image/<?php echo $this->name_favicon . ' ;base64,' . $this->favicon ?>" 
+    />
+    
+    <br/><br/>
+    <?php echo $this->form; ?>
+</div>
